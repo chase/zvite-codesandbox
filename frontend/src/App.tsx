@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useHomeQuery, useTweetMutation } from './graphql-types-and-hooks';
 import Login from './Login';
 import { logout } from './graphql';
@@ -18,19 +18,25 @@ function App() {
   const handleSend = useCallback(() => {
     const message = textFieldRef.current?.value;
 
-    if (!message) return;
+    if (textFieldRef.current == null || !message) return;
 
-    console.log(message);
-
+    textFieldRef.current.value = '';
     sendTweet({
       variables: {
         message
       }
     });
   }, [textFieldRef, sendTweet]);
-  useEffect(() => {
-    console.log(submittingTweet, tweetData, JSON.stringify(tweetError));
-  }, [submittingTweet, tweetData, tweetError]);
+
+  const handleKeyPress: React.KeyboardEventHandler<HTMLTextAreaElement> = useCallback(
+    (evt) => {
+      if (evt.key === 'Enter') {
+        evt.preventDefault();
+        handleSend();
+      }
+    },
+    [handleSend]
+  );
 
   if (error) return <code>{JSON.stringify(error)}</code>;
 
@@ -62,6 +68,7 @@ function App() {
             maxLength={120}
             placeholder="Your thoughts go here"
             ref={textFieldRef}
+            onKeyPress={handleKeyPress}
           />
           <button onClick={handleSend}>Send ➤</button>
         </div>

@@ -18,4 +18,4 @@ function Tweet({ date, author, message }: ITweet) {
   );
 }
 
-export default React.memo(Tweet);
+export default Tweet;

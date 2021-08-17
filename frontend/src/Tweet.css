@@ -13,6 +13,7 @@
 
 .Tweet-message {
   border-radius: 0 0 3px 3px;
+  border: 2px #6ee7b7 solid;
   background: #fff;
 }
 
