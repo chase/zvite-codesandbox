@@ -1,0 +1,33 @@
+query Home {
+  author {
+    ...AuthorFields
+  }
+  tweets {
+    ...TweetFields
+  }
+}
+
+mutation Login($username: String!) {
+  login(username: $username)
+}
+
+
+mutation Tweet($message: String!) {
+  tweet(message: $message) {
+    ...TweetFields
+  }
+}
+
+fragment AuthorFields on Author {
+  name
+  username
+}
+
+fragment TweetFields on Tweet {
+  id
+  date
+  message
+  author {
+    ...AuthorFields
+  }
+}

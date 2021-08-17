@@ -1,0 +1,55 @@
+.App {
+}
+
+.App-nav {
+  background: #10b981;
+  background: linear-gradient(
+    45deg,
+    rgba(16, 185, 129, 1) 0%,
+    rgba(52, 211, 153, 1) 100%
+  );
+  color: #064e3b;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 2px #a7f3d0 solid;
+
+  padding: 0.5rem 1rem;
+}
+
+.App-nav h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem auto;
+}
+
+.App-nav button {
+  color: #064e3b;
+  outline: 0;
+  text-decoration: underline;
+  font-weight: 500;
+  background: transparent;
+}
+
+.App main {
+  margin: 1rem 0;
+}
+
+.App-input,
+.App-tweets {
+  max-width: 512px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.App-input textarea,
+.App-input button {
+  width: 100%;
+}
+
+.App-input textarea {
+  resize: none;
+
+  border: 2px #d1d5db solid;
+}

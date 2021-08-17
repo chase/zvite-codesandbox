@@ -1,0 +1,18 @@
+.Login {
+  max-width: 512px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.Error {
+  margin: 1rem 0;
+  color: #ef4444;
+  background: #fecaca;
+  padding: 1rem;
+  border-radius: 3px;
+}
+
+.Login input {
+  width: 100%;
+  margin-bottom: 1rem;
+}
